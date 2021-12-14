@@ -5,25 +5,25 @@ public class LimitedItem extends Item {
 	public LimitedItem(String name, short sellIn, short quality) {
 		setName(name);
 		setSellIn((sellIn >= 0 ? sellIn : 0));
-		setQuality((quality >= Item.Qualite_Mini ? (quality <= Item.Qualite_Max ? quality : Item.Qualite_Max) : Item.Qualite_Mini));
+		setQuality((quality >= Item.qualiteMini ? (quality <= Item.qualiteMax ? quality : Item.qualiteMax) : Item.qualiteMini));
 	}
 	
 	@Override
 	public void newDay() {
 		if (getSellIn() > 0) {
-			setSellIn((short) (getSellIn()-Item.Valeur_Descendante));
+			setSellIn((short) (getSellIn()-Item.valeurDescendante));
 			
 			if (getSellIn() > 10) {
-				setQuality((short) (getQuality() + Item.Valeur_Montante <= Item.Qualite_Max ?
-						getQuality()+Item.Valeur_Montante : Item.Qualite_Max));
+				setQuality((short) (getQuality() + Item.valeurMontante <= Item.qualiteMax ?
+						getQuality()+Item.valeurMontante : Item.qualiteMax));
 			}
 			else if (getSellIn() > 5) {
-				setQuality((short) (getQuality() + (Item.Valeur_Montante *2) <= Item.Qualite_Max ?
-						getQuality()+(Item.Valeur_Montante *2) : Item.Qualite_Max));
+				setQuality((short) (getQuality() + (Item.valeurMontante *2) <= Item.qualiteMax ?
+						getQuality()+(Item.valeurMontante *2) : Item.qualiteMax));
 			}
 			else {
-				setQuality((short) (getQuality() + (Item.Valeur_Montante *3) <= Item.Qualite_Max ?
-						getQuality()+(Item.Valeur_Montante *3) : Item.Qualite_Max));
+				setQuality((short) (getQuality() + (Item.valeurMontante *3) <= Item.qualiteMax ?
+						getQuality()+(Item.valeurMontante *3) : Item.qualiteMax));
 			}
 		}
 		else
