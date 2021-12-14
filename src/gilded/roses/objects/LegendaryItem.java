@@ -4,8 +4,8 @@ public class LegendaryItem extends Item {
 	
 	public LegendaryItem(String name) {
 		super.setName(name);
-		super.setQuality(LEGENDARY_ITEM_QUALITY);
-		super.setSellIn(LEGENDARY_ITEM_SELLIN);
+		super.setQuality(Qualite_Item_Legendaire);
+		super.setSellIn(Vente_Item_Legendaire);
 	}
 	
 	@Override
