@@ -2,18 +2,18 @@ package gilded.roses.objects;
 
 public abstract class Item {
 	
-	public static final short valeurDescendante = 1;
-	public static final short valeurMontante = 1;
-	public static final short qualiteMax = 50;
-	public static final short qualiteMini = 0;
+	public static final int valeurDescendante = 1;
+	public static final int valeurMontante = 1;
+	public static final int qualiteMax = 50;
+	public static final int qualiteMini = 0;
 	
-	public static final short qualiteItemLegendaire = 80;
-	public static final short venteItemLegendaire = -1;
+	public static final int qualiteItemLegendaire = 80;
+	public static final int venteItemLegendaire = -1;
 
 	
 	private String name;
-	private short sellIn;
-	private short quality;
+	private int sellIn;
+	private int quality;
 	
 	public void setName(String nom) {
 		name = nom;
@@ -23,19 +23,19 @@ public abstract class Item {
 		return name;
 	}
 	
-	public void setSellIn(short sellin) {
+	public void setSellIn(int sellin) {
 		sellIn = sellin;
 	}
 	
-	public short getSellIn() {
+	public int getSellIn() {
 		return sellIn;
 	}
 
-	public void setQuality(short qualite) {
+	public void setQuality(int qualite) {
 		quality = qualite;
 	}
 	
-	public short getQuality() {
+	public int getQuality() {
 		return quality;
 	}
 	
