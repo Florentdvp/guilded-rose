@@ -5,27 +5,28 @@ public class LimitedItem extends Item {
 	public LimitedItem(String name, short sellIn, short quality) {
 		setName(name);
 		setSellIn((sellIn >= 0 ? sellIn : 0));
-		setQuality((quality >= Item.MIN_QUALITY ? (quality <= Item.MAX_QUALITY ? quality : Item.MAX_QUALITY) : Item.MIN_QUALITY));
+		setQuality((quality >= Item.Qualite_Mini ? (quality <= Item.Qualite_Max ? quality : Item.Qualite_Max) : Item.Qualite_Mini));
 	}
 	
 	@Override
 	public void newDay() {
 		if (getSellIn() > 0) {
-			
-			setSellIn((short) (getSellIn()-Item.DECREASE_VALUE));
+			setSellIn((short) (getSellIn()-Item.Valeur_Descendante));
 			
 			if (getSellIn() > 10) {
-				setQuality((short) (getQuality() + Item.INCREASE_VALUE <= Item.MAX_QUALITY ?
-						getQuality()+Item.INCREASE_VALUE : Item.MAX_QUALITY));
-			} else if (getSellIn() > 5) {
-				setQuality((short) (getQuality() + (Item.INCREASE_VALUE*2) <= Item.MAX_QUALITY ?
-						getQuality()+(Item.INCREASE_VALUE*2) : Item.MAX_QUALITY));
-			} else {
-				setQuality((short) (getQuality() + (Item.INCREASE_VALUE*3) <= Item.MAX_QUALITY ?
-						getQuality()+(Item.INCREASE_VALUE*3) : Item.MAX_QUALITY));
+				setQuality((short) (getQuality() + Item.Valeur_Montante <= Item.Qualite_Max ?
+						getQuality()+Item.Valeur_Montante : Item.Qualite_Max));
 			}
-			
-		} else
+			else if (getSellIn() > 5) {
+				setQuality((short) (getQuality() + (Item.Valeur_Montante *2) <= Item.Qualite_Max ?
+						getQuality()+(Item.Valeur_Montante *2) : Item.Qualite_Max));
+			}
+			else {
+				setQuality((short) (getQuality() + (Item.Valeur_Montante *3) <= Item.Qualite_Max ?
+						getQuality()+(Item.Valeur_Montante *3) : Item.Qualite_Max));
+			}
+		}
+		else
 			setQuality((short) 0);
 	}
 
