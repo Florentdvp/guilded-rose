@@ -1,6 +1,6 @@
-package gilded.roses.objects;
+package gilded.roses.objects.shop;
 
-import java.lang.reflect.Array;
+import gilded.roses.objects.Item;
 
 public class shop {
     private Item items[];

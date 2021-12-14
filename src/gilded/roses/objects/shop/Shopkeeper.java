@@ -1,4 +1,6 @@
-package gilded.roses.objects;
+package gilded.roses.objects.shop;
+
+import gilded.roses.objects.Item;
 
 public class Shopkeeper {
 

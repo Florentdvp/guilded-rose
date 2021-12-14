@@ -1,44 +1,37 @@
 package gilded.roses.objects;
 
 public abstract class Item {
-	
-	public static final int valeurDescendante = 1;
-	public static final int valeurMontante = 1;
-	public static final int qualiteMax = 50;
-	public static final int qualiteMini = 0;
-	
-	public static final int qualiteItemLegendaire = 80;
-	public static final int venteItemLegendaire = -1;
 
-	
-	private String name;
-	private int sellIn;
-	private int quality;
-	
-	public void setName(String nom) {
-		name = nom;
+	protected String name;
+	protected int sellIn;
+	protected int quality;
+	//ajouter value
+
+	public Item(String name, int sellIn, int quality) {
+		this.name = name;
+		this.sellIn = sellIn;
+		this.quality = quality;
 	}
-	
+
 	public String getName() {
 		return name;
 	}
-	
-	public void setSellIn(int sellin) {
-		sellIn = sellin;
-	}
-	
 	public int getSellIn() {
 		return sellIn;
 	}
-
-	public void setQuality(int qualite) {
-		quality = qualite;
-	}
-	
 	public int getQuality() {
 		return quality;
 	}
 	
-	public abstract void newDay();
+	public abstract void update();
+
+	public void borderQuality(){
+		if(this.quality<0){
+			quality=0;
+		}
+		if(this.quality>50){
+			quality=50;
+		}
+	}
 	
 }
