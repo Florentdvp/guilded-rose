@@ -2,23 +2,18 @@ package gilded.roses;
 
 import java.util.ArrayList;
 
+import gilded.roses.objects.InMemoryRepository;
 import gilded.roses.objects.Item;
+import gilded.roses.objects.inventory.InventoryInteractor;
 
 public class Main {
-	
-	public static ArrayList<Item> items = new ArrayList<Item>();
-	
+
 	public static void main(String[] args) {
-		
-	}
-	
-	public static void updateQuality() {
-		
-		if (!items.isEmpty()) {
-			for (Item i : items)
-				i.newDay();
+		InventoryInteractor interactor = new InventoryInteractor(new InMemoryRepository());
+		interactor.updateQuality();
+		for(Item i : interactor.getInventory()){
+			System.out.println(i.getQuality());
 		}
-		
 	}
 
 }

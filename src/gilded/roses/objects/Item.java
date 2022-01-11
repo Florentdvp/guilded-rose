@@ -1,43 +1,37 @@
 package gilded.roses.objects;
 
 public abstract class Item {
-	
-	public static final short DECREASE_VALUE = 1;
-	public static final short INCREASE_VALUE = 1;
-	public static final short MAX_QUALITY = 50;
-	public static final short MIN_QUALITY = 0;
-	
-	public static final short LEGENDARY_ITEM_QUALITY = 80;
-	public static final short LEGENDARY_ITEM_SELLIN = -1;
-	
-	private String name;
-	private short sellIn;
-	private short quality;
-	
-	public void setName(String nom) {
-		name = nom;
+
+	protected String name;
+	protected int sellIn;
+	protected int quality;
+	//ajouter value
+
+	public Item(String name, int sellIn, int quality) {
+		this.name = name;
+		this.sellIn = sellIn;
+		this.quality = quality;
 	}
-	
+
 	public String getName() {
 		return name;
 	}
-	
-	public void setSellIn(short sellin) {
-		sellIn = sellin;
-	}
-	
-	public short getSellIn() {
+	public int getSellIn() {
 		return sellIn;
 	}
-
-	public void setQuality(short qualite) {
-		quality = qualite;
-	}
-	
-	public short getQuality() {
+	public int getQuality() {
 		return quality;
 	}
 	
-	public abstract void newDay();
+	public abstract void update();
+
+	public void borderQuality(){
+		if(this.quality<0){
+			quality=0;
+		}
+		if(this.quality>50){
+			quality=50;
+		}
+	}
 	
 }
